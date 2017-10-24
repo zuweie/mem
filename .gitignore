@@ -12,11 +12,16 @@ libTest/Makefile.in
 libTest/.libs/
 libTest/*.lo
 libTest/*.o
+libTest/.deps/
 libmem/Makefile.in
 libmem/.libs/
 libmem/*.la
 libmem/*.o
 libmem/*.lo
+libmem/.deps/
+exampleProgram/.libs/
+exampleProgram/.deps/
+exampleProgram/*.o
 include/*.in
 ltmain.sh
 missing
