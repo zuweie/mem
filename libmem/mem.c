@@ -54,7 +54,8 @@ extern size_t oz_freelist_size (oz_alloc * palloc, size_t n)
 	oz_node * current_obj;
 	current_obj = *my_free_list;
 	size_t count = 0;
-	while(0!=current_obj && current_obj ->free_list_link != 0) {
+	while(0!=current_obj && current_obj->free_list_link != 0) {
+		current_obj = current_obj->free_list_link;
 		++count;
 	}
 	return count;
@@ -95,6 +96,7 @@ static void * refill (oz_alloc* palloc, size_t n)
 		next_obj = (oz_node *) ((char *) next_obj + n);
 		if (nobjs - 1 == i) {
 			current_obj ->free_list_link = 0;
+			break;
 		}else{
 			current_obj ->free_list_link = next_obj;
 		}

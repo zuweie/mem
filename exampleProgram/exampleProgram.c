@@ -45,13 +45,13 @@ void testalloc_alloc(oz_alloc * palloc)
 {
 #if ALLOC_DEBUG
 	int i;
-	for (i=0; i<3; ++i) {
+	for (i=0; i<30; ++i) {
 		size_t size = rand() % 128;
 		printf("take size of %d......\n", size);
 		char * p1 = (char*) oz_allocate(palloc, size);
 		printf("%d size of free list is %d\n", size, oz_freelist_size(palloc, size));
 		char * p2 = oz_allocate(palloc, size);
-		printf("%d size of free list is %d\n", size, oz_freelist_size(palloc, size));
+		printf("take again %d size of free list is %d\n", size, oz_freelist_size(palloc, size));
 
 		printf(" put back size of  %d ... \n", size);
 		oz_deallocate(palloc, p1, size);
@@ -63,15 +63,27 @@ void testalloc_alloc(oz_alloc * palloc)
 }
 
 int main(void) {
+
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
+	//printf("hello world, what the fuck");
   //print_hello();
   oz_alloc alloc;
   oz_init_alloc(&alloc);
   //testalloc_index();
   //testalloc_roundup();
  // testalloc_freelist(&alloc);
-  //testalloc_alloc(&alloc);
-  char * p = (char *) oz_allocate(&alloc, 100);
-  oz_deallocate(&alloc, p, 100);
+  testalloc_alloc(&alloc);
+  //char * p = (char *) oz_allocate(&alloc, 100);
+  //oz_deallocate(&alloc, p, 100);
 
   return 0;
 }

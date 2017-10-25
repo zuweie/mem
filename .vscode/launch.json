@@ -1,0 +1,18 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+            
+            {
+                "name": "mem Launch",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "/Users/zuweie/code/mem/exampleProgram/.libs/exampleProgram",
+                "args": [],
+                "stopAtEntry": true,
+                "cwd": "${workspaceRoot}",
+                "environment": [{"name":"DYLD_LIBRARY_PATH", "value":"/Users/zuweie/code/mem/libmem/.libs:$DYLD_LIBRARY_PATH"}],
+                "externalConsole": true,
+                "MIMode": "lldb"
+            }
+        ]
+    }
